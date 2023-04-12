@@ -1,4 +1,4 @@
-[toc]
+@[toc]
 
 # 起步
 
@@ -14,7 +14,7 @@
 print("Hello Python interpreter!")
 ```
 
-<img src="./reference/chapter01/1.1.2Python代码片段.jpg"/>
+![1.1.2Python代码片段.jpg](https://img-blog.csdnimg.cn/d2b35f96b8484ecca40f177eb680b31d.jpeg#pic_center)
 
 ### 1.1.3 Sublime Text 简介
 
@@ -47,7 +47,7 @@ print("Hello Python world!")
 1. 进入文件所在的目录
 2. 运行程序
 
-<img src="./reference/chapter01/1.5.1在终端运行Python程序.jpg">
+![1.5.1在终端运行Python程序.jpg](https://img-blog.csdnimg.cn/3debecbd4cae44d58cc1d79c4fb75a9b.jpeg#pic_center)
 
 ### 在 Linux 和 macOS 系统中从终端运行 Python 程序
 
