@@ -14,7 +14,7 @@
 print("Hello Python interpreter!")
 ```
 
-![Python代码片段.jpg](./reference/chapter01/1.1.2Python代码片段.jpg)
+<img src="./reference/chapter01/1.1.2Python代码片段.jpg"/>
 
 ### 1.1.3 Sublime Text 简介
 
@@ -47,7 +47,7 @@ print("Hello Python world!")
 1. 进入文件所在的目录
 2. 运行程序
 
-![在终端运行Python程序.jpg](./reference/chapter01/1.5.1在终端运行Python程序.jpg)
+<img src="./reference/chapter01/1.5.1在终端运行Python程序.jpg">
 
 ### 在 Linux 和 macOS 系统中从终端运行 Python 程序
 
