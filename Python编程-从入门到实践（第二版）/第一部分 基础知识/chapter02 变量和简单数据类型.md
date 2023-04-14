@@ -128,9 +128,11 @@ Hello, Ada Lovelace!
 1. 制表符：`\t`
    ![制表符](https://img-blog.csdnimg.cn/ae8abc48b0b94bf3be976c4a20be3254.jpeg#pic_center)
 
-2. 换行符：`\n` ![换行符](https://img-blog.csdnimg.cn/e7a5c72cd64d43f49a2b67c9270f3d39.jpeg#pic_center)
+2. 换行符：`\n`
+   ![换行符](https://img-blog.csdnimg.cn/e7a5c72cd64d43f49a2b67c9270f3d39.jpeg#pic_center)
 
 一个字符串中同时包含制表符和换行符：
+
 ![2.3.3同时包含制表符和换行符.jpg](https://img-blog.csdnimg.cn/481b4d7edb3040d48f8295609ec8385b.jpeg#pic_center)
 
 ### 2.3.4 删除空白
