@@ -1,4 +1,4 @@
-[toc]
+@[toc]
 
 # 变量和简单数据类型
 
@@ -59,7 +59,7 @@ print(mesage)
 ```
 
 编译器提供的`traceback`：
-![2.2.2traceback](./reference/chapter02/2.2.2traceback.jpg)
+![2.2.2traceback.jpg](https://img-blog.csdnimg.cn/90f2d3964fd54df3b778c32fcd50b2c4.jpeg#pic_center)
 
 在这里编译器提供了一个名称错误，并报告打印的变量`mesage`未定义。
 
@@ -87,7 +87,7 @@ print(mesage)
    print(name.title())
    ```
 
-   ![2.3.1name.py执行结果](./reference/chapter02/2.3.1name.py执行结果.jpg)
+   ![2.3.1name.py执行结果.jpg](https://img-blog.csdnimg.cn/215ebb5a4fbd435799074f9090b2427b.jpeg#pic_center)
 
 2. `upper()`与`lower()`方法
 
@@ -99,7 +99,7 @@ print(mesage)
    print(name.lower())
    ```
 
-   ![2.3.1upper与lower方法](./reference/chapter02/2.3.1upper与lower方法.jpg)
+   ![2.3.1upper与lower方法.jpg](https://img-blog.csdnimg.cn/fb52f74764b94b7d9a453a13d66f5ba7.jpeg#pic_center)
 
 ### 2.3.2 在字符串中使用变量
 
@@ -126,12 +126,12 @@ Hello, Ada Lovelace!
 在编程中，空白泛指任何非打印字符，如空格、制表符和换行符。可以用空白来组织输出，让用户阅读起来更容易。
 
 1. 制表符：`\t`
-   ![2.3.3制表符](./reference/chapter02/2.3.3制表符.jpg)
-2. 换行符：`\n`
-   ![2.3.3换行符](./reference/chapter02/2.3.3换行符.jpg)
+   ![制表符](https://img-blog.csdnimg.cn/ae8abc48b0b94bf3be976c4a20be3254.jpeg#pic_center)
+
+2. 换行符：`\n` ![换行符](https://img-blog.csdnimg.cn/e7a5c72cd64d43f49a2b67c9270f3d39.jpeg#pic_center)
 
 一个字符串中同时包含制表符和换行符：
-![2.3.3同时包含制表符和换行符](./reference/chapter02/2.3.3同时包含制表符和换行符.jpg)
+![2.3.3同时包含制表符和换行符.jpg](https://img-blog.csdnimg.cn/481b4d7edb3040d48f8295609ec8385b.jpeg#pic_center)
 
 ### 2.3.4 删除空白
 
@@ -142,7 +142,7 @@ Hello, Ada Lovelace!
 2. 删除开头空白字符：`lstrip()`
 3. 删除两边空白字符：`strip()`
 
-![2.3.4删除空白](./reference/chapter02/2.3.4删除空白.jpg)
+![2.3.4删除空白.jpg](https://img-blog.csdnimg.cn/503ac92f779c4107abfd44e25893316e.jpeg#pic_center)
 
 ### 2.3.5 使用字符串时避免语法错误
 
@@ -162,7 +162,7 @@ SyntaxError: invalid syntax
 
 在`Python`中，支持对整数的加(+)减(-)乘(\*)除(/)运算、整数除法运算(//, 返回商的整数部分:向下取整)、乘方运算（\*\*）、还支持运算次序。
 
-![2.4.1整数](./reference/chapter02/2.4.1整数.jpg)
+![2.4.1整数.jpg](https://img-blog.csdnimg.cn/90ceee1628c143c6a0b566a83f02dd97.jpeg#pic_center)
 
 > 空格不影响`Python`计算表达式的方式。
 
@@ -170,7 +170,7 @@ SyntaxError: invalid syntax
 
 `Python`将所有带小数点的数称为浮点数。
 
-![2.4.2浮点数](./reference/chapter02/2.4.2浮点数.jpg)
+![2.4.2浮点数.jpg](https://img-blog.csdnimg.cn/447981d5d9b6411d8833d1340c9ef390.jpeg#pic_center)
 
 > 结果包含的小数位数可能是不确定的。
 
@@ -179,12 +179,13 @@ SyntaxError: invalid syntax
 - 将任意两个数相除时，结果总是浮点数，即便这两个数都是整数且能整除。
 - 若一个操作数是整数，另一个操作数是浮点数，结果也是浮点数。
 
-![2.4.3整数和浮点数](./reference/chapter02/2.4.3整数和浮点数.jpg)
+![2.4.3整数和浮点数.jpg](https://img-blog.csdnimg.cn/9ea8f1e3a5af47b6b1196c7213e6ca29.jpeg#pic_center)
 
 ### 2.4.4 数中的下划线
 
 使用的数很大时，用下划线将数字分组，使得更清晰易读。打印数字时不会出现下划线。
-![2.4.4数中的下划线](./reference/chapter02/2.4.4数中的下划线.jpg)
+
+![2.4.4数中的下划线.jpg](https://img-blog.csdnimg.cn/afce7bdc0d1b4b9e9d6a92a0c451d956.jpeg#pic_center)
 
 ### 2.4.5 同时给多个变量赋值
 
@@ -195,7 +196,7 @@ SyntaxError: invalid syntax
 x, y, z = 0, 0, 0
 ```
 
-![2.4.5同时给多个变量赋值](./reference/chapter02/2.4.5同时给多个变量赋值.jpg)
+![2.4.5同时给多个变量赋值.jpg](https://img-blog.csdnimg.cn/98c8806bd4e44ec78a6a643598fce5da.jpeg#pic_center)
 
 ### 2.4.6 常量
 
@@ -232,7 +233,7 @@ Hello Python people!
 
 ## 2.6 Python 之禅
 
-![2.6python之禅](./reference/chapter02/2.6python之禅.jpg)
+![2.6python之禅.jpg](https://img-blog.csdnimg.cn/ed68478f9cb94a69b69e88d8e97dda63.jpeg#pic_center)
 
 ## 2.7 小结
 
