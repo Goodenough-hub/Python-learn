@@ -126,9 +126,11 @@ Hello, Ada Lovelace!
 在编程中，空白泛指任何非打印字符，如空格、制表符和换行符。可以用空白来组织输出，让用户阅读起来更容易。
 
 1. 制表符：`\t`
+
    ![制表符](https://img-blog.csdnimg.cn/ae8abc48b0b94bf3be976c4a20be3254.jpeg#pic_center)
 
 2. 换行符：`\n`
+
    ![换行符](https://img-blog.csdnimg.cn/e7a5c72cd64d43f49a2b67c9270f3d39.jpeg#pic_center)
 
 一个字符串中同时包含制表符和换行符：
