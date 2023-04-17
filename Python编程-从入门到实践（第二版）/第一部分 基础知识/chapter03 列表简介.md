@@ -4,6 +4,8 @@
 
 ## 3.1 列表是什么
 
+[Python 列表(List)](https://www.runoob.com/python/python-lists.html)
+
 列表由一系列按特定顺序排列的元素组成。可以将任何东西加入列表中。
 
 在`Python`中，用方括号([])表示列表，并用逗号分隔其中的元素。
