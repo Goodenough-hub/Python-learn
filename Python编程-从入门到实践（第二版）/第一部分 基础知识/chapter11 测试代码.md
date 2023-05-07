@@ -230,12 +230,209 @@ OK
 
 ### 11.2.2 一个要测试的类
 
+类的测试与函数的测试相似，你所做的大部分工作是测试类中方法的行为。不过还是存在一些不同之处，下面编写一个要测试的类。来看一个帮助管理匿名调查的类(`survey.py`)：
+
+```python
+class AnonymousSurvey:
+    """收集匿名调查问卷的答案。"""
+
+    def __init__(self, question):
+        """存储一个问题，并为存储答案做准备。"""
+        self.question = question
+        self.responses = []
+
+    def show_question(self):
+        """显示调查问卷。"""
+        print(self.question)
+
+    def store_response(self, new_response):
+        """存储单份调查答卷。"""
+        self.responses.append(new_response)
+
+    def show_results(self):
+        """显示收集到的所有答卷。"""
+        print("Survey results:")
+        for response in self.responses:
+            print(f"- {response}")
+```
+
+为证明`AnonymousSurvey`类能够正确工作，编写一个使用它的程序：
+
+```python
+from survey import AnonymousSurvey
+
+# 定义一个问题，并创建一个调查。
+question = "What language did you first learn to speak?"
+my_survey = AnonymousSurvey(question)
+
+# 显示问题并存储答案。
+my_survey.show_question()
+print("Enter 'q' at any time to quit.\n")
+while True:
+    response = input("Language: ")
+    if response == 'q':
+        break
+    my_survey.store_response(response)
+
+# 显示调查结果。
+print("\nThank you to everyone who participated in the survey!")
+my_survey.show_results()
+```
+
+用户输入所有答案（输出 q 要求退出）：
+
+```
+What language did you first learn to speak?
+Enter 'q' at any time to quit.
+
+Language: English
+Language: Spanish
+Language: English
+Language: Mandarin
+Language: q
+
+Thank you to everyone who participated in the survey!
+Survey results:
+- English
+- Spanish
+- English
+- Mandarin
+```
+
 ### 11.2.3 测试 AnnoymousSurvey 类
+
+编写一个测试，对`AnnoymousSurvey`类的行为进行验证：如果用户面对调查问题只提供一个答案，这个答案也能被妥善地存储。在答案被存储后，使用方法`assertIn()`来核实它确实在答案列表中：
+
+```python
+import unittest
+from survey import AnonymousSurvey
+
+
+class TestAnonymousSurvey(unittest.TestCase):
+    """针对 AnonymousSurvey 类的测试。"""
+
+    def test_store_single_response(self):
+        """测试单个答案会被妥善地存储。"""
+        question = "What language did you first learn to speak?"
+        my_survey = AnonymousSurvey(question)
+        my_survey.store_response('English')
+        self.assertIn('English', my_survey.responses)
+
+
+if __name__ == '__main__':
+    unittest.main()
+```
+
+==要测试类的行为，需要创建实例==。使用问题`"What language did you first learn to speak?"`创建一个名为`my_survey`的实例，然后使用方法`store_response()`存储单个答案`English`。接下来，检查`English`是否包含在一个列表`my_survey.responses`中，以核实这个答案是否被妥善地存储。
+
+运行`test_survey.py`时，测试通过了：
+
+```
+.
+----------------------------------------------------------------------
+Ran 1 test in 0.000s
+
+OK
+```
+
+---
+
+下面核实当用户提供三个答案时，它们也能被妥善地存储。
+
+```python
+import unittest
+from survey import AnonymousSurvey
+
+
+class TestAnonymousSurvey(unittest.TestCase):
+    """针对 AnonymousSurvey 类的测试。"""
+
+    def test_store_single_response(self):
+        --snip--
+
+    def test_store_three_responses(self):
+        """测试三个答案会被妥善地存储。"""
+        question = "What languags did you learn first learn to speak?"
+        my_survey = AnonymousSurvey(question)
+        responses = ['English', 'Spanish', 'Mandarin']
+        for respons in responses:
+            my_survey.store_response(respons)
+
+        for response in responses:
+            self.assertIn(respons, my_survey.responses)
+
+
+if __name__ == '__main__':
+    unittest.main()
+```
+
+创建一个调查对象`my_survey`，定义一个包含三个不同答案的列表，再对其中每个答案调用`store_response()`。在存储这些答案后，使用一个循环来确认每个答案都包含在`my_survey.responses`中。
+
+运行`test_survey.py`两个测试（只针对单个答案的测试和针对三个答案的测试）都通过了：
+
+```
+..
+----------------------------------------------------------------------
+Ran 2 tests in 0.000s
+
+OK
+```
 
 ### 11.2.4 方法 setUp()
 
+在前面的`test_survey.py`中，我们在每个测试方法中都创建了一个`AnonymousSurvey`实例，并在每个方法中都创建了答案。`unittest.TestCase`类中包含的方法`setUp()`让我们只需创建这些对象一次，就能在每个测试方法中使用。如果在`TestCase`类中包含了方法`setUp()`，`Python`将先运行它，再运行各个以`test_`打头的方法。这样，在你编写的每个测试方法中，都可使用在方法`setUp()`中创建的对象。
+
+下面使用`setUp()`来创建一个调查对象和一组答案，供方法`test_store_single_response()`和`test_store_three_responses()`使用：
+
+```python
+import unittest
+from survey import AnonymousSurvey
+
+
+class TestAnonymousSurvey(unittest.TestCase):
+    """针对 AnonymousSurvey 类的测试。"""
+
+    def setUp(self):
+        """
+        创建一个调查对象和一组答案，供使用的测试方法使用。
+        """
+        question = "What language did you first learn to speak?"
+        self.my_survey = AnonymousSurvey(question)
+        self.responses = ['English', 'Spanish', 'Mandarin']
+
+    def test_store_single_response(self):
+        """测试单个答案会被妥善地存储。"""
+        self.my_survey.store_response(self.responses[0])
+        self.assertIn(self.responses[0], self.my_survey.responses)
+
+    def test_store_three_responses(self):
+        """测试三个答案会被妥善地存储。"""
+        for response in self.responses:
+            self.my_survey.store_response(response)
+
+        for response in self.responses:
+            self.assertIn(response, self.my_survey.responses)
+
+
+if __name__ == '__main__':
+    unittest.main()
+```
+
+- 方法`setUp()`做了两件事：创建一个调查对象，以及创建一个答案列表。
+  存储这两样东西的变量名包含前缀`self`（即存储在属性中），因此可在这个类的任何地方使用。
+
+再次运行`test_survey.py`，这两个测试都通过了。
+
+方法`setUp()`让测试方法编写起来更加容易：可在`setUp()`方法中创建一系列实例并设置其属性，再在测试方法中直接使用这些实例。相比于在每个测试方法中都创建实例并设置其属性，这要容易得多。
+
+---
+
+> 运行测试用例时，每完成一个单元测试，Python 都打印一个字符：测试通过时打印一个句点，测试引发错误时打印一个 E，而测试导致断言失败时则打印一个 F。这就是你运行测试用例时，在输出的第一行中看到的句点和字符数量各不相同的原因。如果测试用例包含很多单元测试，需要运行很长时间，就可通过观察这些结果来获悉有多少个测试通过了。
+
 ## 11.3 小结
 
-```
+在本章中，你学习了：
 
-```
+1. 如何使用模块`unittest`中的工具来为函数和类编写测试；
+2. 如何编写继承`unittest.TestCase`的类，以及如何编写测试方法，以核实函数和类的行为符合预期；
+3. 如何使用方法`setUp()`来根据类高效地创建实例并设置其属性，以便在类的所有测试方法中使用。
